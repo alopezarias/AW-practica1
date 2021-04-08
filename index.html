@@ -18,7 +18,7 @@
             <article id="tablero" class="color2">
                 <form>
                     <table id="tabla">
-                        <th colspan="9">Cabecera</th>
+                        <th colspan="9">Tablero del Pasatiempo</th>
                         <tr class="fila">
                             <td class="columna_vacio" colspan="1"><p></p></td>
                             <td class="columna_vacio" colspan="1"><p></p></td>
@@ -298,10 +298,45 @@
             </article>
             <article id="instrucciones" class="color3">
                 <article id="datos" class="color4">
-                    <h4>Instrucciones de juego</h4>
+                    <h4>Información de resolución</h4>
+                    <ol>
+                        <li>Familia en Escocia.</li>
+                        <li>Tristeza y dolor por algo.</li>
+                        <li>Termino algo definitivamente.</li>
+                        <li>El que torea.</li>
+                    </ol>
+                    <h4>Instrucciones del pasatiempo</h4>
+                    <p>Identifique la primera palabra y la última de cada bloque con las pistas que se dan.
+                        A continuación, trate de descrubir las palabras intermedias. Para lograrlo,
+                        cambie una letra de la primera palabra para obtener la próxima y, después, altere
+                        el orden de una o varias letras para encontrar la siguiente. Siga así, sucesivamente,
+                        hasta que logre completar ambos casilleros. Todas las palabras intermedias deben
+                        tener significado.
+                    </p>
                 </article>
-                <article id="pista" class="color5">
-                    <h4>Pedir pista</h4>
+                <article id="seccionPista" class="color5">
+                    <form>
+                        <table id="tablaPista">
+                            <tr>
+                                <td rowspan="3" colspan="2" id="textoPista">
+                                    <h4>Pistas de resolución</h4>
+                                    <p>Introduce letras y obtendrás palabras formadas con ellas. Úsame con precaución, 
+                                        solo tienes 3 oportunidades.</p>
+                                </td>
+                                <td colspan="1" id="formularioPista">
+                                    <input id="letrasPista" type="text" size="6" maxlength="6"/>
+                                </td>
+                                <td colspan="1" id="casillaBotonPista">
+                                    <button id="botonPista" type="button" onclick="otorgarPista()">Pedir Pista (3)</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" id="casillaPista">
+                                    <textarea id="pista" rows="5" cols="7"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </article>
             </article>
         </section>
