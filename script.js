@@ -10,6 +10,10 @@ var infoPasatiempo = {'valores': '', 'pistas': ''};
 var soluciones = {'0': 'clan', '5':'pena', '6':'remato', '11':'torero'};
 var colores = {'verde':'#A7F270', 'rojo':'#E66852'};
 
+const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  } 
+
 /*FUNCIONES DE LA CARGA DEL DICCIONARIO Y DEMÁS INFORMACIÓN INICIAL */
 
 function cargarDiccionario(){
@@ -29,9 +33,9 @@ function almacenarPalabras(texto){
     let palabras = texto.split("\n");
     palabras.forEach(function(elemento, indice, array) {
         if(elemento.length == 4){
-            arrayPalabras4.push(elemento);
+            arrayPalabras4.push(removeAccents(elemento));
         }else if(elemento.length == 6){
-            arrayPalabras6.push(elemento);
+            arrayPalabras6.push(removeAccents(elemento));
         }
     });
     //console.log("Arrays cargados, ya se puede resolver");
