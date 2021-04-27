@@ -10,6 +10,23 @@ var infoPasatiempo = {'valores': '', 'pistas': ''};
 var soluciones = {'0': 'clan', '5':'pena', '6':'remato', '11':'torero'};
 var colores = {'verde':'#A7F270', 'rojo':'#E66852'};
 
+var tablero = [
+    [" "," "," "," "," "," "," "," "," "],
+    [" "," ","I","I","I","I","1"," "," "],
+    [" "," ","I","I","I","I"," "," "," "],
+    [" "," ","I","I","I","I"," "," "," "],
+    [" "," ","I","I","I","I"," "," "," "],
+    [" "," ","I","I","I","I"," "," "," "],
+    [" "," ","I","I","I","I","2"," "," "],
+    [" ","3","I","I","I","I","I","I"," "],
+    [" "," ","I","I","I","I","I","I"," "],
+    [" "," ","I","I","I","I","I","I"," "],
+    [" "," ","I","I","I","I","I","I"," "],
+    [" "," ","I","I","I","I","I","I"," "],
+    [" ","4","I","I","I","I","I","I"," "],
+    [" "," "," "," "," "," "," "," "," "]
+];
+
 const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   } 
@@ -358,4 +375,70 @@ function pintarVerde(elemento){
 function pintarRojo(elemento){
     //console.log(elemento);
     elemento.style.backgroundColor=colores.rojo;
+}
+
+/*  funcion de creacion de la tabla del pasatiempo  */
+function crearTabla(){
+    let tabla = document.getElementById("tabla");
+    let tbody = document.createElement("tbody");
+    
+    for(let i=0; i<tablero.length; i++){
+        let fila = document.createElement("tr");
+        for(let j=0; j<tablero[0].length; j++){
+            let valor = tablero[i][j];
+            let columna;
+            if(valor == " "){
+                columna = createEmptyColumn();
+            }else if(valor == "I"){
+                columna = createInputColumn(i+""+j)
+            }else{
+                columna = createNumberColumn(valor);
+            }
+            fila.appendChild(columna);
+        }
+        tbody.appendChild(fila);
+    }
+    tabla.appendChild(tbody);
+}
+
+function createEmptyColumn(){
+    let columna = document.createElement("td");
+    columna.setAttribute("class","columna_vacio");
+    columna.setAttribute("colspan","1");
+
+    let empty = document.createElement("p");
+    empty.innerHTML = "";
+
+    columna.appendChild(empty);
+    return columna;
+}
+
+function createInputColumn(id){
+    let columna = document.createElement("td");
+    columna.setAttribute("class","columna_input");
+    columna.setAttribute("colspan","1");
+
+    let celda = document.createElement("input");
+    celda.setAttribute("id","celda"+id);
+    celda.setAttribute("class","celda");
+    celda.setAttribute("type","text");
+    celda.setAttribute("size","1");
+    celda.setAttribute("maxlength","1");
+    celda.setAttribute("onblur","guardarCasillas()");
+
+    columna.appendChild(celda);
+    return columna;
+}
+
+function createNumberColumn(num){
+    let columna = document.createElement("td");
+    columna.setAttribute("class","columna_num");
+    columna.setAttribute("colspan","1");
+
+    let texto = document.createElement("a");
+    texto.setAttribute("class", "texto");
+    texto.innerHTML = num;
+
+    columna.appendChild(texto);
+    return columna;
 }
