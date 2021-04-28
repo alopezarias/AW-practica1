@@ -6,8 +6,8 @@
   --color4:#ed6663;
   --color5:#ffa372;
   --color6:#D7D4D3;
-  --verde:#BCEB6E;
-  --rojo:#F56352;
+  --verde:#A7F270;
+  --rojo:#E66852;
   --fuente:Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -117,7 +117,7 @@ footer{
   border: 0;
   text-transform: uppercase;
 }
-.celda:hover{
+.celda:hover {
   background-color: var(--color6);
   color: black;
 }

@@ -7,7 +7,7 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
 
-    <body class="pagina" onload="cargarDiccionario(), cargarInfoGuardada(), crearTabla()">
+    <body class="pagina" onload="cargarDiccionario(),crearTabla(),cargarInfoGuardada()">
         <header class="color1">
             <h1 class="titulo">EN CASCADA</h1>
         </header>
@@ -77,7 +77,7 @@
                     </td>
                     <td>
                         <label class="switch">
-                            <input type="checkbox" id="guardar" onchange="almacenamiento()"> 
+                            <input type="checkbox" id="guardar" onchange="cambioAlmacenamiento()"> 
                             <span class="slider round"></span>
                         </label>
                     </td>
